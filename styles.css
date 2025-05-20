@@ -48,9 +48,9 @@ body {
 p.coaching-text {
   font-family: sans-serif;
   font-weight: bold;
-  /* font-size: 100% !important; */
   /* white-space: nowrap;  */
   overflow: hidden;
+  font-size: 1rem !important;
   text-overflow: ellipsis;
   margin-bottom: 2px !important;
   margin-top: 2px !important;
