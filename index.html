@@ -11,7 +11,7 @@
     <!-- Header with Navigation -->
     <header>
         <div class="container">
-            <img src="photos/MoM logo.jpg" alt="Masters of Minds Logo">
+            <img class="logo" src="photos/MoM logo.jpg" alt="Masters of Minds Logo">
             <div class="main-nav">
                 <a href="#about">About Us</a>
                 <a href="#services">Services</a>
@@ -83,13 +83,17 @@
                         <div class="mentor-header">
                             <p class="mentor-tribute">Our Driving Force of Excellence</p>
                         </div>
-                        <div class="mentor-image">
-                            <img src="photos/ArulSaravanan.jpg" alt="Dr. Arulsaravanan">
+                        <div class="mentor-basic-info">
+                            <div class="mentor-image">
+                                <img src="photos/ArulSaravanan.jpg" alt="Dr. Arulsaravanan">
+                            </div>
+                            <div class="mentor-name-title">
+                                <h3>Dr. Arulsaravanan</h3>
+                                <p class="mentor-title">Psychologist</p>
+                            </div>
                         </div>
-                        <div class="mentor-info">
-                            <h3>Dr. Arulsaravanan</h3>
-                            <p class="mentor-title">Psychologist</p>
-                            <p>He bridges ancient wisdom with modern science, helping individuals rewire their minds to thrive—from childhood to leadership.</p>
+                        <div class="mentor-content">
+                            <p>He blends ancient wisdom with modern science, guiding minds to thrive, from childhood to leadership.</p>
                             <div class="mentor-details">
                                 <h4>His Expertise:</h4>
                                 <ul>
@@ -104,19 +108,23 @@
                             <button class="mentor-expand">Read More</button>
                         </div>
                     </div>
-                    
+
                     <!-- Prof. A. Joseph Einstein -->
                     <div class="mentor-card slide-in-right">
                         <div class="mentor-header">
                             <p class="mentor-tribute">Honouring Our Guiding Light</p>
                         </div>
-                        <div class="mentor-image">
-                            <img src="photos/JosephEinstein.jpg" alt="Prof. A. Joseph Einstein">
+                        <div class="mentor-basic-info">
+                            <div class="mentor-image">
+                                <img src="photos/JosephEinstein.jpg" alt="Prof. A. Joseph Einstein">
+                            </div>
+                            <div class="mentor-name-title">
+                                <h3>Prof. A. Joseph Einstein</h3>
+                                <p class="mentor-title">Mentor | Corporate Alchemist | Youth Resilience Architect</p>
+                            </div>
                         </div>
-                        <div class="mentor-info">
-                            <h3>Prof. A. Joseph Einstein</h3>
-                            <p class="mentor-title">Mentor | Corporate Alchemist | Youth Resilience Architect</p>
-                            <p>Behind every awakened mind is a teacher who refused to let potential sleep. He showed that psychology isn’t just about healing but igniting rockets.</p>
+                        <div class="mentor-content">
+                            <p>Behind every awakened mind is a teacher who refused to let potential sleep. He showed that psychology isn't just about healing but igniting rockets.</p>
                             <div class="mentor-details">
                                 <h4>His Legacy:</h4>
                                 <ul>
@@ -315,99 +323,65 @@
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <h2 class="section-title slide-in">Testimonials</h2>
-            
-                <!-- Testimonial points that slide in from alternating sides -->
-                <div class="testimonial-points">
-                    <div class="point-container">
-                        <div class="testimonial-point slide-in-left">
-                            <p>Children discover self-expression</p>
-                        </div>
-                    </div>
-                    <div class="point-container">
-                        <div class="testimonial-point slide-in-right">
-                            <p>Parents unlock positive guidance</p>
-                        </div>
-                    </div>
-                    <div class="point-container">
-                        <div class="testimonial-point slide-in-left">
-                            <p>Teachers inspire creative learning</p>
-                        </div>
-                    </div>
-                </div>
-            
-                <!-- Button to expand testimonials -->
-                <div class="testimonial-button-container">
-                    <button id="viewTestimonialsBtn" class="btn btn-primary">View Testimonials</button>
-                </div>
-            
-                <!-- Extended testimonials view (hidden by default) -->
-                <div id="testimonialsExtended" class="testimonials-extended">
-                    <h3>A Glimpse Of Our Success</h3>
-                
-                    <!-- Testimonial document carousel -->
-                    <div class="testimonial-carousel">
-                        <div class="carousel-container">
-                            <button class="carousel-arrow prev-arrow testimonial-prev">&#10094;</button>
-                        
-                            <div class="testimonial-track-container">
-                                <div class="testimonial-track">
-                                    <!-- Testimonial items -->
-                                    <div class="testimonial-item" data-index="0">
-                                        <div class="testimonial-button">
-                                            <img src="photos/static/testimonials/1.jpg" alt="Testimonial 1" class="testimonial-image">
-                                            <div class="testimonial-overlay">View Image</div>
-                                        </div>
+
+                <!-- Testimonial document carousel -->
+                <div class="testimonial-carousel">
+                    <div class="carousel-container">
+                        <button class="carousel-arrow prev-arrow testimonial-prev">&#10094;</button>
+                    
+                        <div class="testimonial-track-container">
+                            <div class="testimonial-track">
+                                <!-- Testimonial items -->
+                                <div class="testimonial-item active" data-index="0">
+                                    <div class="testimonial-button">
+                                        <img src="photos/static/testimonials/1.jpg" alt="Testimonial 1" class="testimonial-image">
+                                        <div class="testimonial-overlay">View Image</div>
                                     </div>
-                                    <div class="testimonial-item" data-index="1">
-                                        <div class="testimonial-button">
-                                            <img src="photos/static/testimonials/2.jpg" alt="Testimonial 2" class="testimonial-image">
-                                            <div class="testimonial-overlay">View Image</div>
-                                        </div>
+                                </div>
+                                <div class="testimonial-item" data-index="1">
+                                    <div class="testimonial-button">
+                                        <img src="photos/static/testimonials/2.jpg" alt="Testimonial 2" class="testimonial-image">
+                                        <div class="testimonial-overlay">View Image</div>
                                     </div>
-                                    <div class="testimonial-item" data-index="2">
-                                        <div class="testimonial-button">
-                                            <img src="photos/static/testimonials/3.jpg" alt="Testimonial 3" class="testimonial-image">
-                                            <div class="testimonial-overlay">View Image</div>
-                                        </div>
+                                </div>
+                                <div class="testimonial-item" data-index="2">
+                                    <div class="testimonial-button">
+                                        <img src="photos/static/testimonials/3.jpg" alt="Testimonial 3" class="testimonial-image">
+                                        <div class="testimonial-overlay">View Image</div>
                                     </div>
-                                    <div class="testimonial-item" data-index="3">
-                                        <div class="testimonial-button">
-                                            <img src="photos/static/testimonials/4.jpg" alt="Testimonial 4" class="testimonial-image">
-                                            <div class="testimonial-overlay">View Image</div>
-                                        </div>
+                                </div>
+                                <div class="testimonial-item" data-index="3">
+                                    <div class="testimonial-button">
+                                        <img src="photos/static/testimonials/4.jpg" alt="Testimonial 4" class="testimonial-image">
+                                        <div class="testimonial-overlay">View Image</div>
                                     </div>
-                                    <div class="testimonial-item" data-index="4">
-                                        <div class="testimonial-button">
-                                            <img src="photos/static/testimonials/5.jpg" alt="Testimonial 5" class="testimonial-image">
-                                            <div class="testimonial-overlay">View Image</div>
-                                        </div>
+                                </div>
+                                <div class="testimonial-item" data-index="4">
+                                    <div class="testimonial-button">
+                                        <img src="photos/static/testimonials/5.jpg" alt="Testimonial 5" class="testimonial-image">
+                                        <div class="testimonial-overlay">View Image</div>
                                     </div>
-                                    <div class="testimonial-item" data-index="5">
-                                        <div class="testimonial-button">
-                                            <img src="photos/static/testimonials/6.jpg" alt="Testimonial 6" class="testimonial-image">
-                                            <div class="testimonial-overlay">View Image</div>
-                                        </div>
+                                </div>
+                                <div class="testimonial-item" data-index="5">
+                                    <div class="testimonial-button">
+                                        <img src="photos/static/testimonials/6.jpg" alt="Testimonial 6" class="testimonial-image">
+                                        <div class="testimonial-overlay">View Image</div>
                                     </div>
                                 </div>
                             </div>
-                        
-                            <button class="carousel-arrow next-arrow testimonial-next">&#10095;</button>
                         </div>
                     
-                        <!-- Testimonial dots for navigation -->
-                        <div class="testimonial-dots">
-                            <span class="testimonial-dot active" data-index="0"></span>
-                            <span class="testimonial-dot" data-index="1"></span>
-                            <span class="testimonial-dot" data-index="2"></span>
-                            <span class="testimonial-dot" data-index="3"></span>
-                            <span class="testimonial-dot" data-index="4"></span>
-                            <span class="testimonial-dot" data-index="5"></span>
-                        </div>
+                        <button class="carousel-arrow next-arrow testimonial-next">&#10095;</button>
                     </div>
                 
-                    <!-- Close button -->
-                    <div class="close-container">
-                        <button id="closeTestimonialsBtn" class="btn btn-secondary">Close</button>
+                    <!-- Testimonial dots for navigation -->
+                    <div class="testimonial-dots">
+                        <span class="testimonial-dot active" data-index="0"></span>
+                        <span class="testimonial-dot" data-index="1"></span>
+                        <span class="testimonial-dot" data-index="2"></span>
+                        <span class="testimonial-dot" data-index="3"></span>
+                        <span class="testimonial-dot" data-index="4"></span>
+                        <span class="testimonial-dot" data-index="5"></span>
                     </div>
                 </div>
             </div>
@@ -476,6 +450,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Call Floating Button -->
+    <div class="call-float">
+        <a href="tel:9360385965" class="call-button" id="callButton">
+            <i class="fas fa-phone"></i>
+            <span class="call-text">Call Now</span>
+        </a>
+    </div>
+    
+    <!-- Call Popup (Only visible on desktop) -->
+    <div id="callPopup" class="call-popup">
+        <div class="call-popup-content">
+            <span class="close-popup">&times;</span>
+            <h3>Call Us</h3>
+            <p class="phone-number">+91 9360385965</p>
+            <button class="call-now-btn">Call Now</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/9360385965" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-text">Chat Now</span>
+        </a>
+    </div>
 
     <script src="script.js"></script>
 </body>

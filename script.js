@@ -119,13 +119,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     mentorExpandButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const mentorInfo = this.closest('.mentor-info');
-            const detailsDiv = mentorInfo.querySelector('.mentor-details');
+            // Look for mentor-content instead of mentor-info
+            const mentorContent = this.closest('.mentor-content');
+            if (!mentorContent) {
+                console.error('mentor-content not found');
+                return;
+            }
             
-            // Toggle expanded class on the mentor info
-            mentorInfo.classList.toggle('mentor-expanded');
+            const detailsDiv = mentorContent.querySelector('.mentor-details');
+            if (!detailsDiv) {
+                console.error('mentor-details not found');
+                return;
+            }
             
-            if (mentorInfo.classList.contains('mentor-expanded')) {
+            // Toggle expanded class on the mentor content
+            mentorContent.classList.toggle('mentor-expanded');
+            
+            if (mentorContent.classList.contains('mentor-expanded')) {
                 this.textContent = 'Read Less';
                 detailsDiv.style.maxHeight = detailsDiv.scrollHeight + 'px';
                 detailsDiv.style.opacity = '1';
@@ -136,7 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+    // mentor ends
+
     // Banner text rotation
     const bannerTexts = document.querySelectorAll(".banner-text");
     let currentTextIndex = 0;
@@ -348,9 +359,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Testimonials Section JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Elements for the testimonials section
-    const viewTestimonialsBtn = document.getElementById('viewTestimonialsBtn');
-    const closeTestimonialsBtn = document.getElementById('closeTestimonialsBtn');
-    const testimonialsExtended = document.getElementById('testimonialsExtended');
     const testimonialItems = document.querySelectorAll('.testimonial-item');
     const testimonialTrack = document.querySelector('.testimonial-track');
     const testimonialDots = document.querySelectorAll('.testimonial-dot');
@@ -365,25 +373,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let touchStartX = 0;
     let touchEndX = 0;
     
-    // Toggle testimonials extended view
-    if (viewTestimonialsBtn) {
-        viewTestimonialsBtn.addEventListener('click', function() {
-            testimonialsExtended.classList.add('active');
-            // Initialize carousel dimensions after opening
-            updateCarouselDimensions();
-            // Start autoplay
-            startAutoplay();
-        });
-    }
-    
-    if (closeTestimonialsBtn) {
-        closeTestimonialsBtn.addEventListener('click', function() {
-            testimonialsExtended.classList.remove('active');
-            // Stop autoplay when closing
-            clearInterval(autoplayInterval);
-        });
-    }
-    
     // Function to update carousel dimensions
     function updateCarouselDimensions() {
         if (testimonialItems.length > 0) {
@@ -394,12 +383,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to show image in same tab
     function showImageFullScreen(imageSrc) {
-        // Hide the testimonials section
-        testimonialsExtended.style.display = 'none';
-        
         // Create full screen image container
         const imageViewer = document.createElement('div');
-        imageViewer.id = 'imageViewer';
         imageViewer.style.cssText = `
             position: fixed;
             top: 0;
@@ -421,22 +406,27 @@ document.addEventListener('DOMContentLoaded', function() {
             position: absolute;
             top: 20px;
             left: 20px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         `;
         
         // Add hover effect
         goBackBtn.addEventListener('mouseenter', function() {
             this.style.backgroundColor = '#0056b3';
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.3)';
         });
         goBackBtn.addEventListener('mouseleave', function() {
             this.style.backgroundColor = '#007bff';
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
         });
         
         // Create the image element
@@ -453,8 +443,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Go back button click handler
         goBackBtn.addEventListener('click', function() {
             document.body.removeChild(imageViewer);
-            testimonialsExtended.style.display = 'block';
-            // Restart autoplay when returning
             startAutoplay();
         });
         
@@ -462,8 +450,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const escapeHandler = function(e) {
             if (e.key === 'Escape') {
                 document.body.removeChild(imageViewer);
-                testimonialsExtended.style.display = 'block';
-                // Restart autoplay when returning
                 startAutoplay();
                 document.removeEventListener('keydown', escapeHandler);
             }
@@ -474,8 +460,6 @@ document.addEventListener('DOMContentLoaded', function() {
         imageViewer.addEventListener('click', function(e) {
             if (e.target === imageViewer) {
                 document.body.removeChild(imageViewer);
-                testimonialsExtended.style.display = 'block';
-                // Restart autoplay when returning
                 startAutoplay();
             }
         });
@@ -629,7 +613,85 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize testimonial carousel if elements exist
     if (testimonialItems.length > 0 && testimonialTrack) {
         initTestimonialCarousel();
+        // Start autoplay
+        startAutoplay();
     }
 });
 
 // testimonial ends
+
+// WhatsApp button pulsing effect
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappButton = document.querySelector('.whatsapp-button');
+    
+    // Add subtle pulse animation
+    function addPulseEffect() {
+        whatsappButton.classList.add('pulse-effect');
+        setTimeout(() => {
+            whatsappButton.classList.remove('pulse-effect');
+        }, 1000);
+    }
+    
+    // Pulse effect every 5 seconds
+    setInterval(addPulseEffect, 5000);
+    
+    // Initial pulse after 2 seconds
+    setTimeout(addPulseEffect, 2000);
+});
+// whatsapp ends
+
+// call button
+document.addEventListener('DOMContentLoaded', function() {
+    const callButton = document.getElementById('callButton');
+    const callPopup = document.getElementById('callPopup');
+    const closePopup = document.querySelector('.close-popup');
+    const callNowBtn = document.querySelector('.call-now-btn');
+    
+    // Function to detect if the device is mobile
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    
+    // Handle call button click
+    callButton.addEventListener('click', function(e) {
+        // Only prevent default and show popup on desktop
+        if (!isMobileDevice()) {
+            e.preventDefault();
+            callPopup.style.display = 'block';
+        }
+        // On mobile, the default behavior will work (open tel: link)
+    });
+    
+    // Close popup when clicking the X
+    closePopup.addEventListener('click', function() {
+        callPopup.style.display = 'none';
+    });
+    
+    // Close popup when clicking outside of it
+    window.addEventListener('click', function(e) {
+        if (e.target === callPopup) {
+            callPopup.style.display = 'none';
+        }
+    });
+    
+    // Call now button in popup
+    callNowBtn.addEventListener('click', function() {
+        window.location.href = 'tel:9360385965';
+    });
+    
+    // Add pulse animation to call button
+    function addCallPulseEffect() {
+        callButton.classList.add('call-pulse-effect');
+        setTimeout(() => {
+            callButton.classList.remove('call-pulse-effect');
+        }, 1000);
+    }
+    
+    // Pulse effect every 5 seconds, alternating with WhatsApp button
+    setInterval(addCallPulseEffect, 5000);
+    
+    // Initial pulse after 3.5 seconds (different timing from WhatsApp button)
+    setTimeout(addCallPulseEffect, 3500);
+});
+
+// call button ends
